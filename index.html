@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog Register</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS for Futuristic Style -->
+    <style>
+        body {
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #555;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            border: none;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(to right, #11998e, #38ef7d);
+            border: none;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card mt-5 p-4">
+                    <div class="card-header text-center">
+                        <h2>Product Catalog Register</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="product-form">
+                            <div class="form-group">
+                                <label for="productName">Product Name</label>
+                                <input type="text" class="form-control" id="productName" placeholder="Enter product name">
+                            </div>
+                            <div class="form-group">
+                                <label for="productDescription">Product Description</label>
+                                <textarea class="form-control" id="productDescription" rows="3" placeholder="Enter product description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="productPrice">Product Price</label>
+                                <input type="number" class="form-control" id="productPrice" placeholder="Enter product price">
+                            </div>
+                            <div class="form-group">
+                                <label for="productCategory">Category</label>
+                                <select class="form-control" id="productCategory">
+                                    <option>Electronics</option>
+                                    <option>Books</option>
+                                    <option>Clothing</option>
+                                    <option>Home Appliances</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Register Product</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS for Form Handling -->
+    <script>
+        $(document).ready(function () {
+            $('#product-form').on('submit', function (e) {
+                e.preventDefault();
+
+                const productName = $('#productName').val();
+                const productDescription = $('#productDescription').val();
+                const productPrice = $('#productPrice').val();
+                const productCategory = $('#productCategory').val();
+
+                if (productName === "" || productDescription === "" || productPrice === "" || productCategory === "") {
+                    alert("All fields are required!");
+                    return;
+                }
+
+                alert(`Product Registered:\nName: ${productName}\nDescription: ${productDescription}\nPrice: ${productPrice}\nCategory: ${productCategory}`);
+
+                // Clear the form
+                $('#product-form')[0].reset();
+            });
+        });
+    </script>
+</body>
+
+</html>
